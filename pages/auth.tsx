@@ -48,14 +48,14 @@ const Auth = () => {
   }, [email, name, password, login]);
 
   return (
-    <div className="relative h-screen w-full bg-[url('/images/hero.jpg')] bg-no-repeat bg-center bg-fixed bg-cover overflow-hidden">
-      <div className="bg-black w-full h-full lg:bg-opacity-50">
+    <div className="relative h-screen w-full overflow-hidden bg-[url('/images/hero.jpg')] bg-cover bg-fixed bg-center bg-no-repeat">
+      <div className="h-full w-full bg-black lg:bg-opacity-50">
         <nav className="px-12 py-5">
           <img src="/images/logo.png" className="h-12" alt="Logo" />
         </nav>
         <div className="flex justify-center">
-          <div className="bg-black bg-opacity-70 px-16 py-16 self-center mt-2 lg:w-2/5 lg:max-w-md rounded-md w-full">
-            <h2 className="text-white text-4xl mb-8 font-semibold">
+          <div className="mt-2 w-full self-center rounded-md bg-black bg-opacity-70 px-16 py-16 lg:w-2/5 lg:max-w-md">
+            <h2 className="mb-8 text-4xl font-semibold text-white">
               {variant === "login" ? "Sign In" : "Register"}
             </h2>
             <div className="flex flex-col gap-4">
@@ -86,31 +86,31 @@ const Auth = () => {
             </div>
             <button
               onClick={variant === "login" ? login : register}
-              className="bg-red-600 py-3 text-white rounded-md w-full mt-10 hover:bg-red-700 transition"
+              className="mt-10 w-full rounded-md bg-red-600 py-3 text-white transition hover:bg-red-700"
             >
               {variant === "login" ? "Login" : "Sign Up"}
             </button>
-            <div className="flex flex-row items-center gap-4 mt-8 justify-center">
+            <div className="mt-8 flex flex-row items-center justify-center gap-4">
               <div
-                className="w-10 h-10 bg-white rounded-full flex items-center justify-center cursor-pointer hover:opacity-80 transition"
+                className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-white transition hover:opacity-80"
                 onClick={() => signIn("google", { callbackUrl: "/" })}
               >
                 <FcGoogle size={30} />
               </div>
               <div
-                className="w-10 h-10 bg-white rounded-full flex items-center justify-center cursor-pointer hover:opacity-80 transition"
+                className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-white transition hover:opacity-80"
                 onClick={() => signIn("github", { callbackUrl: "/" })}
               >
                 <FaGithub size={30} />
               </div>
             </div>
-            <p className="text-neutral-500 mt-12">
+            <p className="mt-12 text-neutral-500">
               {variant === "login"
                 ? "First time using Netflix?"
                 : "Already have an account?"}
               <span
                 onClick={toggleVariant}
-                className="text-white ml-1 hover:underline cursor-pointer"
+                className="ml-1 cursor-pointer text-white hover:underline"
               >
                 {variant === "login" ? "Create an account" : "Login"}
               </span>
